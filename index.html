@@ -1,0 +1,438 @@
+<html lang="en">
+  <head>
+    <title>Starting App.....</title>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width,initial-scale=1,minimum-scale=1"
+      name="viewport"
+    />
+    <style>
+      .nuxt-loader-bar {
+        background: repeating-linear-gradient(
+          to right,
+          #5f36e4 0%,
+          #1d2ae0 25%,
+          #0049dc 50%,
+          #1d6be0 75%,
+          #3676e4 100%
+        );
+        height: 100px;
+        background-size: 200% auto;
+        background-position: 0 0;
+        animation: gradient 2s infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+      }
+      .visual-effects .nuxt-loader-bar {
+        height: 100px;
+        bottom: -50px;
+        left: -50px;
+        right: -50px;
+        filter: blur(100px);
+      }
+      .visual-effects .mouse-gradient {
+        background: repeating-linear-gradient(
+          to right,
+          #0021dc 0%,
+          #1d3ae0 50%,
+          #368ae4 100%
+        );
+        filter: blur(100px);
+        opacity: 0.5;
+      }
+      #animation-toggle {
+        position: fixed;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        transition: opacity 0.4s ease-in;
+        opacity: 0;
+      }
+      #animation-toggle:hover {
+        opacity: 0.8;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        html,
+        body {
+          color: white;
+          color-scheme: dark;
+        }
+        .nuxt-loader-bar {
+          opacity: 0.5;
+        }
+      }
+      *,
+      :before,
+      :after {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: var(--un-default-border-color, #e5e7eb);
+      }
+      :before,
+      :after {
+        --un-content: "";
+      }
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0;
+        line-height: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      button {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        text-transform: none;
+      }
+      button,
+      [type="button"] {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+      button {
+        cursor: pointer;
+      }
+
+      *,
+      :before,
+      :after {
+        --un-rotate: 0;
+        --un-rotate-x: 0;
+        --un-rotate-y: 0;
+        --un-rotate-z: 0;
+        --un-scale-x: 1;
+        --un-scale-y: 1;
+        --un-scale-z: 1;
+        --un-skew-x: 0;
+        --un-skew-y: 0;
+        --un-translate-x: 0;
+        --un-translate-y: 0;
+        --un-translate-z: 0;
+        --un-pan-x: ;
+        --un-pan-y: ;
+        --un-pinch-zoom: ;
+        --un-scroll-snap-strictness: proximity;
+        --un-ordinal: ;
+        --un-slashed-zero: ;
+        --un-numeric-figure: ;
+        --un-numeric-spacing: ;
+        --un-numeric-fraction: ;
+        --un-border-spacing-x: 0;
+        --un-border-spacing-y: 0;
+        --un-ring-offset-shadow: 0 0 rgb(0 0 0 / 0);
+        --un-ring-shadow: 0 0 rgb(0 0 0 / 0);
+        --un-shadow-inset: ;
+        --un-shadow: 0 0 rgb(0 0 0 / 0);
+        --un-ring-inset: ;
+        --un-ring-offset-width: 0px;
+        --un-ring-offset-color: #fff;
+        --un-ring-width: 0px;
+        --un-ring-color: rgb(147 197 253 / 0.5);
+        --un-blur: ;
+        --un-brightness: ;
+        --un-contrast: ;
+        --un-drop-shadow: ;
+        --un-grayscale: ;
+        --un-hue-rotate: ;
+        --un-invert: ;
+        --un-saturate: ;
+        --un-sepia: ;
+        --un-backdrop-blur: ;
+        --un-backdrop-brightness: ;
+        --un-backdrop-contrast: ;
+        --un-backdrop-grayscale: ;
+        --un-backdrop-hue-rotate: ;
+        --un-backdrop-invert: ;
+        --un-backdrop-opacity: ;
+        --un-backdrop-saturate: ;
+        --un-backdrop-sepia: ;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+      .top-0 {
+        top: 0;
+      }
+      .z-20 {
+        z-index: 20;
+      }
+      .h-\[200px\] {
+        height: 200px;
+      }
+      .min-h-screen {
+        min-height: 100vh;
+      }
+      .w-\[200px\] {
+        width: 200px;
+      }
+      .flex {
+        display: flex;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .rounded-full {
+        border-radius: 9999px;
+      }
+      .bg-white {
+        --un-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--un-bg-opacity));
+      }
+      .text-center {
+        text-align: center;
+      }
+      .transition-opacity {
+        transition-property: opacity;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+      }
+      @media (prefers-color-scheme: dark) {
+        .dark\:bg-black {
+          --un-bg-opacity: 1;
+          background-color: rgb(0 0 0 / var(--un-bg-opacity));
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        const t = document.createElement("link").relList;
+        if (t && t.supports && t.supports("modulepreload")) return;
+        for (const e of document.querySelectorAll('link[rel="modulepreload"]'))
+          i(e);
+        new MutationObserver((e) => {
+          for (const r of e)
+            if (r.type === "childList")
+              for (const o of r.addedNodes)
+                o.tagName === "LINK" && o.rel === "modulepreload" && i(o);
+        }).observe(document, { childList: !0, subtree: !0 });
+        function s(e) {
+          const r = {};
+          return (
+            e.integrity && (r.integrity = e.integrity),
+            e.referrerPolicy && (r.referrerPolicy = e.referrerPolicy),
+            e.crossOrigin === "use-credentials"
+              ? (r.credentials = "include")
+              : e.crossOrigin === "anonymous"
+              ? (r.credentials = "omit")
+              : (r.credentials = "same-origin"),
+            r
+          );
+        }
+        function i(e) {
+          if (e.ep) return;
+          e.ep = !0;
+          const r = s(e);
+          fetch(e.href, r);
+        }
+      })();
+    </script>
+  </head>
+  <body
+    class="relative overflow-hidden min-h-screen bg-white dark:bg-black flex flex-col justify-center items-center text-center visual-effects"
+  >
+    <div
+      id="mouseLight"
+      class="absolute top-0 rounded-full mouse-gradient transition-opacity h-[200px] w-[200px]"
+      style="
+        opacity: 0;
+        top: -187.5px;
+        left: -88.5px;
+        height: 464px;
+        width: 464px;
+        filter: blur(160px);
+      "
+    ></div>
+    <a
+      href="#"
+      target="_blank"
+      rel="noopener"
+      class="nuxt-logo z-20"
+      aria-label="Nuxt"
+    >
+      <h1
+        id="nuxtImg"
+        width="214"
+        height="53"
+        style="
+          opacity: 0.7;
+          mask-image: radial-gradient(
+            circle at 178.467px 12.9667px,
+            black 75%,
+            transparent 100%
+          );
+        "
+      >
+        Official Obitech
+      </h1> </a
+    ><button id="animation-toggle" type="button">Animation Enabled</button>
+    <div class="nuxt-loader-bar"></div>
+
+    <script>
+      const ANIMATION_KEY = "nuxt-loading-enable-animation";
+      const isSafari = /^((?!chrome|android).)*safari/i.test(
+        navigator.userAgent
+      );
+
+      let isLowPerformance = checkIsLowPerformance();
+      let enableAnimation =
+        localStorage.getItem(ANIMATION_KEY) === "false"
+          ? false
+          : localStorage.getItem(ANIMATION_KEY) === "true"
+          ? true
+          : !isLowPerformance;
+
+      const mouseLight = window.document.getElementById("mouseLight");
+      const nuxtImg = window.document.getElementById("nuxtImg");
+      const animationToggle =
+        window.document.getElementById("animation-toggle");
+      const body = window.document.body;
+      let bodyRect;
+
+      function checkIsLowPerformance() {
+        return (
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+          navigator.hardwareConcurrency < 2 ||
+          navigator.deviceMemory < 1 ||
+          // Safari has some performance issue on the blur filter. Remove this when it's fixed.
+          isSafari
+        );
+      }
+      function calculateDistance(elem, mouseX, mouseY) {
+        return Math.floor(
+          Math.sqrt(
+            Math.pow(mouseX - (elem.x + elem.width / 2), 2) +
+              Math.pow(mouseY - (elem.top + elem.height / 2), 2)
+          )
+        );
+      }
+      function onFocusOut() {
+        if (!enableAnimation) {
+          return;
+        }
+        mouseLight.style.opacity = 0;
+        nuxtImg.style.opacity = 0.7;
+      }
+      function onMouseMove(e) {
+        if (!enableAnimation) {
+          return;
+        }
+        const pointerRect = nuxtImg.getBoundingClientRect();
+        if (!bodyRect) {
+          bodyRect = body.getBoundingClientRect();
+        }
+        const distance = calculateDistance(pointerRect, e.pageX, e.pageY);
+        const size = Math.max((1000 - distance) / 2 / 100, 1);
+
+        mouseLight.style.top = `${
+          e.clientY - bodyRect.y - mouseLight.clientHeight / 2
+        }px`;
+        mouseLight.style.left = `${e.clientX - mouseLight.clientWidth / 2}px`;
+        mouseLight.style.width = mouseLight.style.height = `${Math.max(
+          Math.round(size * 100),
+          300
+        )}px`;
+        mouseLight.style.filter = `blur(${Math.min(
+          Math.max(size * 50, 100),
+          160
+        )}px)`;
+        mouseLight.style.opacity = Math.min(Math.max(size / 4, 0.6), 1);
+
+        const dx = e.pageX - pointerRect.left;
+        const dy = e.pageY - pointerRect.top;
+        const logoGradient = `radial-gradient(circle at ${dx}px ${dy}px, black 75%, transparent 100%)`;
+        nuxtImg.style["-webkit-mask-image"] = logoGradient;
+        nuxtImg.style["mask-image"] = logoGradient;
+        nuxtImg.style.opacity = Math.min(Math.max(size / 4, 0.7), 1);
+      }
+
+      function toggleAnimation(value = !enableAnimation) {
+        enableAnimation = value;
+        document.body.classList.toggle("visual-effects", enableAnimation);
+        if (value) {
+          onFocusOut();
+          animationToggle.innerText = "Animation Enabled";
+        } else {
+          mouseLight.style.opacity = 0;
+          nuxtImg.style.opacity = 1;
+          nuxtImg.style["mask-image"] = "";
+          nuxtImg.style["-webkit-mask-image"] = "";
+          animationToggle.innerText = "Animation Disabled";
+        }
+        localStorage.setItem(ANIMATION_KEY, enableAnimation ? "true" : "false");
+      }
+
+      animationToggle.addEventListener("click", () => toggleAnimation(), {
+        passive: true,
+      });
+      body.addEventListener("mousemove", onMouseMove, { passive: true });
+      body.addEventListener("mouseleave", onFocusOut, { passive: true });
+
+      toggleAnimation(enableAnimation);
+
+      if (typeof window.fetch === "undefined") {
+        setTimeout(() => window.location.reload(), 1000);
+      } else {
+        const check = async () => {
+          try {
+            const body = await window
+              .fetch(window.location.href)
+              .then((r) => r.text());
+            if (!body.includes("__NUXT_LOADING__")) {
+              return window.location.reload();
+            }
+          } catch {}
+          setTimeout(check, 1000);
+        };
+        check();
+      }
+    </script>
+  </body>
+</html>
